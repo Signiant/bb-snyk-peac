@@ -1,0 +1,79 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Resources required for SNYK PEAC
+Transform: AWS::Serverless-2016-10-31
+
+# More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
+Globals:
+  Function:
+    Timeout: 900
+
+Parameters:
+    appName:
+        Type: String
+        Default: "bb-snyk-peac"
+        Description: "Note: Must be all lowercase"
+    Architecture:
+        Type: String
+        Description: "Processor architecture"
+        Default: x86_64
+        AllowedValues:
+            - arm64
+            - x86_64
+    BBWorkspace:
+        Type: String
+        Description: "Note: Must be all lowercase"
+    SNYKToken:
+        Type: String
+        Description: "Note: Must be all lowercase"
+    SNYKOrg:
+        Type: String
+        Description: "Note: Must be all lowercase"
+    SNYKIntID:
+        Type: String
+        Description: "Note: Must be all lowercase"
+
+Resources:
+    SNYKPEAC:
+        Type: AWS::Serverless::Function
+        Properties:
+            Architectures:
+                - !Ref Architecture
+            FunctionName: !Ref appName
+            CodeUri: .
+            Handler: lambda.lambda_handler
+            Runtime: python3.9
+            FunctionUrlConfig:
+                AuthType: NONE
+            Environment:
+              Variables:
+                BB_WORKSPACE:
+                  Ref: BBWorkspace
+                SNYK_TOKEN:
+                  Ref: SNYKToken
+                SNYK_ORG:
+                  Ref: SNYKOrg
+                SNYK_INT_ID:
+                  Ref: SNYKIntID
+            Policies:
+              Statement:
+                - Effect: Allow
+                  Action:
+                    - ssm:GetParameter
+                  Resource:
+                    - '*'
+                - Action:
+                    - sts:AssumeRole
+                    - logs:CreateLogGroup
+                    - logs:CreateLogStream
+                    - logs:PutLogEvents
+                    - logs:DescribeLogStreams
+                    - ec2:CreateTags
+                  Effect: Allow
+                  Resource:
+                    - '*'
+
+Outputs:
+    FunctionUrl:
+        Description: "Endpoint URL for Lambda"
+        Value:
+            Fn::GetAtt: SNYKPEACUrl.FunctionUrl

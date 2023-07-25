@@ -1,0 +1,81 @@
+{
+  "version": "2.0",
+  "routeKey": "$default",
+  "rawPath": "/",
+  "rawQueryString": "",
+  "body": {
+    "repository": {
+      "type": "repository",
+      "full_name": "WORKSPACE/REPONAME",
+      "links": {
+        "self": {
+          "href": "https://api.bitbucket.org/2.0/repositories/WORKSPACE/REPONAME"
+        },
+        "html": {
+          "href": "https://bitbucket.org/WORKSPACE/REPONAME"
+        },
+        "avatar": {
+          "href": "https://bytebucket.org/ravatar/%RAVATAR_ID?ts=default"
+        }
+      },
+      "name": "REPONAME",
+      "scm": "git",
+      "website": null,
+      "owner": {
+        "display_name": "A_DISPLAY_NAME",
+        "links": {
+          "self": {
+            "href": "https://api.bitbucket.org/2.0/users/AUUID"
+          },
+          "avatar": {
+            "href": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/initials/AVATAR.png"
+          },
+          "html": {
+            "href": "https://bitbucket.org/AUUID/"
+          }
+        },
+        "type": "user",
+        "uuid": "{aUUID}",
+        "account_id": "ANACCOUNT_ID",
+        "nickname": "A_NICKNAME"
+      },
+      "workspace": {
+        "type": "workspace",
+        "uuid": "{AUUID}",
+        "name": "WORKSPACE_TEST",
+        "slug": "WORKSPACE",
+        "links": {
+          "avatar": {
+            "href": "https://bitbucket.org/workspaces/WORKSPACE/avatar/?ts=1543729347"
+          },
+          "html": {
+            "href": "https://bitbucket.org/WORKSPACE/"
+          },
+          "self": {
+            "href": "https://api.bitbucket.org/2.0/workspaces/WORKSPACE"
+          }
+        }
+      },
+      "is_private": true,
+      "project": {
+        "type": "project",
+        "key": "TEST",
+        "uuid": "{aUUID}",
+        "name": "Project1",
+        "links": {
+          "self": {
+            "href": "https://api.bitbucket.org/2.0/workspaces/myworkspace/projects/TEST"
+          },
+          "html": {
+            "href": "https://bitbucket.org/MYORG/workspace/projects/TEST"
+          },
+          "avatar": {
+            "href": "https://bitbucket.org/account/user/myworkspace/projects/TEST/avatar/AVATAR"
+          }
+        }
+      },
+      "uuid": "{AUUID}"
+    }
+  },
+  "isBase64Encoded": "taco"
+}

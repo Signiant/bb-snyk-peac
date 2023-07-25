@@ -1,0 +1,11 @@
+version = 1.0
+[live]
+[live.deploy]
+[live.deploy.parameters]
+stack_name = "bb-snyk-peac"
+s3_bucket = "BUCKET"
+s3_prefix = "bb-snyk-peac"
+region = "us-east-1"
+confirm_changeset = false
+capabilities = "CAPABILITY_IAM"
+parameter_overrides = "appName=\"snyk-peac-dev\" BBWorkspace=\"MYWORKSPACE\" SNYKToken=\"SNYKTOKEN\" SNYKOrg=\"SNYKORG\" SNYKIntID=\"SNKYINTID\""
