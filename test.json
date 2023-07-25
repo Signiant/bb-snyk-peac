@@ -61,13 +61,13 @@
         "type": "project",
         "key": "TEST",
         "uuid": "{aUUID}",
-        "name": "Microservices",
+        "name": "Project1",
         "links": {
           "self": {
             "href": "https://api.bitbucket.org/2.0/workspaces/myworkspace/projects/TEST"
           },
           "html": {
-            "href": "https://bitbucket.org/mtgperttula/workspace/projects/TEST"
+            "href": "https://bitbucket.org/MYORG/workspace/projects/TEST"
           },
           "avatar": {
             "href": "https://bitbucket.org/account/user/myworkspace/projects/TEST/avatar/AVATAR"
